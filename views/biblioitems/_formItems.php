@@ -21,19 +21,22 @@ echo TabularForm::widget([
         'type' => TabularForm::INPUT_TEXT,
     ],
     'attributes' => [
-        'itemnumber' => ['type' => TabularForm::INPUT_HIDDEN],
+        'itemnumber' => ['type' => TabularForm::INPUT_HIDDEN,
+            'columnOptions' => ['hidden' => true]
+        ],
         'biblionumber' => [
-            'label' => 'Biblio',
-            'type' => TabularForm::INPUT_WIDGET,
+            'type' => TabularForm::INPUT_HIDDEN,
+                'columnOptions'=>['hidden'=>true]
+            /* 'type' => TabularForm::INPUT_WIDGET,
             'widgetClass' => \kartik\widgets\Select2::className(),
             'options' => [
                 'data' => \yii\helpers\ArrayHelper::map(\app\models\Biblio::find()->orderBy('biblionumber')->asArray()->all(), 'biblionumber', 'biblionumber'),
                 'options' => ['placeholder' => 'Choose Biblio'],
             ],
-            'columnOptions' => ['width' => '200px']
+            'columnOptions' => ['width' => '200px'] */
         ],
         'barcode' => ['type' => TabularForm::INPUT_TEXT],
-        'dateaccessioned' => ['type' => TabularForm::INPUT_WIDGET,
+        /* 'dateaccessioned' => ['type' => TabularForm::INPUT_WIDGET,
             'widgetClass' => \kartik\datecontrol\DateControl::classname(),
             'options' => [
                 'type' => \kartik\datecontrol\DateControl::FORMAT_DATE,
@@ -46,8 +49,8 @@ echo TabularForm::widget([
                     ]
                 ],
             ]
-        ],
-        'booksellerid' => ['type' => TabularForm::INPUT_TEXTAREA],
+        ], */
+        /* 'booksellerid' => ['type' => TabularForm::INPUT_TEXTAREA],
         'homebranch' => ['type' => TabularForm::INPUT_TEXT],
         'price' => ['type' => TabularForm::INPUT_TEXT],
         'replacementprice' => ['type' => TabularForm::INPUT_TEXT],
@@ -102,13 +105,13 @@ echo TabularForm::widget([
             'options' => [
                 'style' => 'position : relative; margin-top : -9px'
             ]
-        ],
+        ], */
         'damaged' => ['type' => TabularForm::INPUT_CHECKBOX,
             'options' => [
                 'style' => 'position : relative; margin-top : -9px'
             ]
         ],
-        'damaged_on' => ['type' => TabularForm::INPUT_WIDGET,
+        /* 'damaged_on' => ['type' => TabularForm::INPUT_WIDGET,
             'widgetClass' => \kartik\datecontrol\DateControl::classname(),
             'options' => [
                 'type' => \kartik\datecontrol\DateControl::FORMAT_DATETIME,
@@ -159,9 +162,9 @@ echo TabularForm::widget([
                     ]
                 ],
             ]
-        ],
+        ], */
         'itemcallnumber' => ['type' => TabularForm::INPUT_TEXT],
-        'coded_location_qualifier' => ['type' => TabularForm::INPUT_TEXT],
+        /* 'coded_location_qualifier' => ['type' => TabularForm::INPUT_TEXT],
         'issues' => ['type' => TabularForm::INPUT_TEXT],
         'renewals' => ['type' => TabularForm::INPUT_TEXT],
         'reserves' => ['type' => TabularForm::INPUT_TEXT],
@@ -170,9 +173,9 @@ echo TabularForm::widget([
                 'style' => 'position : relative; margin-top : -9px'
             ]
         ],
-        'itemnotes' => ['type' => TabularForm::INPUT_TEXTAREA],
+        'itemnotes' => ['type' => TabularForm::INPUT_TEXTAREA], */
         'itemnotes_nonpublic' => ['type' => TabularForm::INPUT_TEXTAREA],
-        'holdingbranch' => ['type' => TabularForm::INPUT_TEXT],
+        /* 'holdingbranch' => ['type' => TabularForm::INPUT_TEXT],
         'deleted_on' => ['type' => TabularForm::INPUT_WIDGET,
             'widgetClass' => \kartik\datecontrol\DateControl::classname(),
             'options' => [
@@ -210,14 +213,14 @@ echo TabularForm::widget([
         'more_subfields_xml' => ['type' => TabularForm::INPUT_TEXTAREA],
         'enumchron' => ['type' => TabularForm::INPUT_TEXTAREA],
         'copynumber' => ['type' => TabularForm::INPUT_TEXT],
-        'stocknumber' => ['type' => TabularForm::INPUT_TEXT],
+        'stocknumber' => ['type' => TabularForm::INPUT_TEXT], */
         'new_status' => ['type' => TabularForm::INPUT_TEXT],
-        'exclude_from_local_holds_priority' => ['type' => TabularForm::INPUT_CHECKBOX,
+        /* 'exclude_from_local_holds_priority' => ['type' => TabularForm::INPUT_CHECKBOX,
             'options' => [
                 'style' => 'position : relative; margin-top : -9px'
             ]
-        ],
-        'del' => [
+        ], */
+        /* 'del' => [
             'type' => 'raw',
             'label' => '',
             'value' => function($model, $key) {
@@ -225,7 +228,7 @@ echo TabularForm::widget([
                     Html::hiddenInput('Children[' . $key . '][id]', (!empty($model['id'])) ? $model['id'] : "") .
                     Html::a('<i class="glyphicon glyphicon-trash"></i>', '#', ['title' =>  'Delete', 'onClick' => 'delRowItems(' . $key . '); return false;', 'id' => 'items-del-btn']);
             },
-        ],
+        ], */
     ],
     'gridSettings' => [
         'panel' => [
@@ -233,7 +236,7 @@ echo TabularForm::widget([
             'type' => GridView::TYPE_DEFAULT,
             'before' => false,
             'footer' => false,
-            'after' => Html::button('<i class="glyphicon glyphicon-plus"></i>' . 'Add Items', ['type' => 'button', 'class' => 'btn btn-success kv-batch-create', 'onClick' => 'addRowItems()']),
+        //    'after' => Html::button('<i class="glyphicon glyphicon-plus"></i>' . 'Add Items', ['type' => 'button', 'class' => 'btn btn-success kv-batch-create', 'onClick' => 'addRowItems()']),
         ]
     ]
 ]);

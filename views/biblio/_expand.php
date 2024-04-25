@@ -4,27 +4,27 @@ use kartik\tabs\TabsX;
 use yii\helpers\Url;
 $items = [
     [
-        'label' => '<i class="glyphicon glyphicon-book"></i> '. Html::encode('Biblio'),
+        'label' => '<i class="fas fa-book"></i> '. Html::encode('Biblioteca'),
         'content' => $this->render('_detail', [
             'model' => $model,
         ]),
     ],
-        [
+        /* [
         'label' => '<i class="glyphicon glyphicon-book"></i> '. Html::encode('Biblio Metadata'),
         'content' => $this->render('_dataBiblioMetadata', [
             'model' => $model,
             'row' => $model->biblioMetadatas,
         ]),
-    ],
+    ], */
             [
-        'label' => '<i class="glyphicon glyphicon-book"></i> '. Html::encode('Biblioitems'),
+        'label' => '<i class="fas fa-book"></i> '. Html::encode('Datos de las Obras'),
         'content' => $this->render('_dataBiblioitems', [
             'model' => $model,
             'row' => $model->biblioitems,
         ]),
     ],
             [
-        'label' => '<i class="glyphicon glyphicon-book"></i> '. Html::encode('Items'),
+        'label' => '<i class="fas fa-book"></i> '. Html::encode('Datos de los ejemplares'),
         'content' => $this->render('_dataItems', [
             'model' => $model,
             'row' => $model->items,

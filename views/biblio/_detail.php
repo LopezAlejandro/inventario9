@@ -19,10 +19,10 @@ use kartik\grid\GridView;
     <div class="row">
 <?php 
     $gridColumn = [
-        'biblionumber',
-        'author:ntext',
+        ['attribute' => 'biblionumber', 'visible' => false,],
         'title:ntext',
         'subtitle:ntext',
+        'author:ntext',
     ];
     echo DetailView::widget([
         'model' => $model,

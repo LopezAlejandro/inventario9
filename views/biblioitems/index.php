@@ -22,15 +22,15 @@ $this->registerJs($search);
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <p>
-        <?= Html::a('Create Biblioitems', ['create'], ['class' => 'btn btn-success']) ?>
-        <?= Html::a('Advance Search', '#', ['class' => 'btn btn-info search-button']) ?>
+        <!-- <?= Html::a('Create Biblioitems', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('Advance Search', '#', ['class' => 'btn btn-info search-button']) ?> -->
     </p>
     <div class="search-form" style="display:none">
         <?=  $this->render('_search', ['model' => $searchModel]); ?>
     </div>
     <?php 
     $gridColumn = [
-        ['class' => 'yii\grid\SerialColumn'],
+//        ['class' => 'yii\grid\SerialColumn'],
         [
             'class' => 'kartik\grid\ExpandRowColumn',
             'width' => '50px',

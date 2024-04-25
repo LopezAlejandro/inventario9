@@ -1,7 +1,8 @@
 <?php
 
 use yii\helpers\Html;
-use yii\widgets\ActiveForm;
+//use yii\widgets\ActiveForm;
+use \kartik\form\ActiveForm;
 
 /* @var $this yii\web\View */
 /* @var $model app\models\Biblioitems */
@@ -19,28 +20,30 @@ use yii\widgets\ActiveForm;
 
 <div class="biblioitems-form">
 
-    <?php $form = ActiveForm::begin(); ?>
+    <?php $form = ActiveForm::begin([
+        'id' => 'formbi-horizontal',
+        'type' => ActiveForm::TYPE_HORIZONTAL,
+        'formConfig' => [
+            'labelSpan' => 3,
+            'deviceSize' => ActiveForm::SIZE_SMALL,
+            'showHints' => false,
+        ]
+    ]); ?>
 
     <?= $form->errorSummary($model); ?>
 
-    <?= $form->field($model, 'biblioitemnumber')->textInput(['placeholder' => 'Biblioitemnumber']) ?>
+    <?= $form->field($model, 'biblioitemnumber')->hiddenInput()->label(false) ?>
+    <?= $form->field($model, 'biblionumber')->hiddenInput()->label(false) ?>
 
-    <?= $form->field($model, 'biblionumber')->widget(\kartik\widgets\Select2::classname(), [
-        'data' => \yii\helpers\ArrayHelper::map(\app\models\Biblio::find()->orderBy('biblionumber')->asArray()->all(), 'biblionumber', 'biblionumber'),
-        'options' => ['placeholder' => 'Choose Biblio'],
-        'pluginOptions' => [
-            'allowClear' => true
-        ],
-    ]); ?>
+    <?= $form->field($model, 'volume')->textInput() ?>
 
-    <?= $form->field($model, 'volume')->textarea(['rows' => 6]) ?>
-
-    <?= $form->field($model, 'number')->textarea(['rows' => 6]) ?>
+    <?= $form->field($model, 'number')->textInput() ?>
 
     <?php
+    
     $forms = [
         [
-            'label' => '<i class="glyphicon glyphicon-book"></i> ' . Html::encode('Items'),
+            'label' => '<i class="fas fa-book"></i> ' . Html::encode('Datos del Ejemplar'),
             'content' => $this->render('_formItems', [
                 'row' => \yii\helpers\ArrayHelper::toArray($model->items),
             ]),
@@ -56,6 +59,7 @@ use yii\widgets\ActiveForm;
             'enableCache' => false,
         ],
     ]);
+    
     ?>
     <div class="form-group">
         <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>

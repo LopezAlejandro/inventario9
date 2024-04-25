@@ -39,7 +39,9 @@
                 'type' => TabularForm::INPUT_HIDDEN,
                 'columnOptions'=>['hidden'=>true]
             ],
-            'barcode' => ['type' => TabularForm::INPUT_TEXT],
+            'barcode' => ['type' => TabularForm::INPUT_TEXT,
+            'label' => 'Codigo de Barras',
+            ],
             /* 'dateaccessioned' => ['type' => TabularForm::INPUT_WIDGET,
                 'widgetClass' => \kartik\datecontrol\DateControl::classname(),
                 'options' => [

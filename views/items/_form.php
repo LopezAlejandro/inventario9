@@ -1,7 +1,8 @@
 <?php
 
 use yii\helpers\Html;
-use yii\widgets\ActiveForm;
+//use yii\widgets\ActiveForm;
+use kartik\form\ActiveForm;
 
 /* @var $this yii\web\View */
 /* @var $model app\models\Items */
@@ -11,37 +12,33 @@ use yii\widgets\ActiveForm;
 
 <div class="items-form">
 
-    <?php $form = ActiveForm::begin(); ?>
+    <?php $form = ActiveForm::begin([
+        'id' => 'formbi-horizontal',
+        'type' => ActiveForm::TYPE_HORIZONTAL,
+        'formConfig' => [
+            'labelSpan' => 3,
+            'deviceSize' => ActiveForm::SIZE_SMALL,
+            'showHints' => false,
+        ]
+    ]); ?>
 
     <?= $form->errorSummary($model); ?>
 
-    <?= $form->field($model, 'itemnumber')->textInput(['placeholder' => 'Itemnumber']) ?>
+    <?= $form->field($model, 'itemnumber')->hiddenInput()->label(false) ?>
 
-    <?= $form->field($model, 'biblionumber')->widget(\kartik\widgets\Select2::classname(), [
-        'data' => \yii\helpers\ArrayHelper::map(\app\models\Biblio::find()->orderBy('biblionumber')->asArray()->all(), 'biblionumber', 'biblionumber'),
-        'options' => ['placeholder' => 'Choose Biblio'],
-        'pluginOptions' => [
-            'allowClear' => true
-        ],
-    ]); ?>
+    <?= $form->field($model, 'biblionumber')->hiddenInput()->label(false) ?>
 
-    <?= $form->field($model, 'biblioitemnumber')->widget(\kartik\widgets\Select2::classname(), [
-        'data' => \yii\helpers\ArrayHelper::map(\app\models\Biblioitems::find()->orderBy('biblioitemnumber')->asArray()->all(), 'biblioitemnumber', 'biblioitemnumber'),
-        'options' => ['placeholder' => 'Choose Biblioitems'],
-        'pluginOptions' => [
-            'allowClear' => true
-        ],
-    ]); ?>
+    <?= $form->field($model, 'biblioitemnumber')->hiddenInput()->label(false) ?>
 
-    <?= $form->field($model, 'barcode')->textInput(['maxlength' => true, 'placeholder' => 'Barcode']) ?>
+    <?= $form->field($model, 'barcode')->label('Codigo de Barras')->textInput(['maxlength' => true, 'placeholder' => 'Barcode'])?>
 
-    <?= $form->field($model, 'damaged')->checkbox() ?>
+    <?= $form->field($model, 'damaged')->label('Estado')->checkbox() ?>
 
-    <?= $form->field($model, 'itemcallnumber')->textInput(['maxlength' => true, 'placeholder' => 'Itemcallnumber']) ?>
+    <?= $form->field($model, 'itemcallnumber')->label('Ubicación')->textInput(['maxlength' => true, 'placeholder' => 'Itemcallnumber']) ?>
 
-    <?= $form->field($model, 'itemnotes_nonpublic')->textarea(['rows' => 6]) ?>
+    <?= $form->field($model, 'itemnotes_nonpublic')->label('Notas Privadas')->textarea(['rows' => 6]) ?>
 
-    <?= $form->field($model, 'new_status')->textInput(['maxlength' => true, 'placeholder' => 'New Status']) ?>
+    <?= $form->field($model, 'new_status')->label('Nro de Obra')->textInput(['maxlength' => true, 'placeholder' => 'New Status']) ?>
 
     <div class="form-group">
         <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
