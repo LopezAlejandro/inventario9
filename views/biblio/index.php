@@ -26,11 +26,11 @@ $this->registerJs($search);
         <?= Html::a('Advance Search', '#', ['class' => 'btn btn-info search-button']) ?> -->
     </p>
     <div class="search-form" style="display:none">
-        <?=  $this->render('_search', ['model' => $searchModel]); ?>
+        <?= $this->render('_search', ['model' => $searchModel]); ?>
     </div>
-    <?php 
+    <?php
     $gridColumn = [
-//        ['class' => 'yii\grid\SerialColumn'],
+        //        ['class' => 'yii\grid\SerialColumn'],
         [
             'class' => 'kartik\grid\ExpandRowColumn',
             'width' => '50px',
@@ -43,15 +43,11 @@ $this->registerJs($search);
             'headerOptions' => ['class' => 'kartik-sheet-style'],
             'expandOneOnly' => true
         ],
-        [ 'attribute'=>'biblionumber', 'visible'=>false, ],
+        ['attribute' => 'biblionumber', 'visible' => false,],
         'title:ntext',
         'subtitle:ntext',
         'author:ntext',
-        /* [
-            'class' => 'yii\grid\ActionColumn',
-            'template' => '{update} {view}',
-        ], */
-    ]; 
+    ];
     ?>
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
@@ -64,23 +60,6 @@ $this->registerJs($search);
             'type' => GridView::TYPE_PRIMARY,
             'heading' => '<span class="fas fa-book"></span>  ' . Html::encode($this->title),
         ],
-        // your toolbar can include the additional full export menu
-        /* 'toolbar' => [
-            '{export}',
-            ExportMenu::widget([
-                'dataProvider' => $dataProvider,
-                'columns' => $gridColumn,
-                'target' => ExportMenu::TARGET_BLANK,
-                'fontAwesome' => true,
-                'dropdownOptions' => [
-                    'label' => 'Full',
-                    'class' => 'btn btn-default',
-                    'itemsBefore' => [
-                        '<li class="dropdown-header">Export All Data</li>',
-                    ],
-                ],
-            ]) ,
-        ], */
     ]); ?>
 
 </div>

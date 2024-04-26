@@ -17,17 +17,17 @@ use kartik\grid\GridView;
     </div>
 
     <div class="row">
-<?php 
-    $gridColumn = [
-        ['attribute' => 'biblionumber', 'visible' => false,],
-        'title:ntext',
-        'subtitle:ntext',
-        'author:ntext',
-    ];
-    echo DetailView::widget([
-        'model' => $model,
-        'attributes' => $gridColumn
-    ]); 
-?>
+        <?php
+        $gridColumn = [
+            ['attribute' => 'biblionumber', 'visible' => false,],
+            'title:ntext',
+            'subtitle:ntext',
+            'author:ntext',
+        ];
+        echo DetailView::widget([
+            'model' => $model,
+            'attributes' => $gridColumn
+        ]);
+        ?>
     </div>
 </div>

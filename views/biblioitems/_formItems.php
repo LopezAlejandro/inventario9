@@ -61,7 +61,6 @@
         'gridSettings' => [
             'panel' => [
                 'heading' => false,
-                //'heading' => '<h3 class="panel-title"><i class="fas fa-book"></i> Edición de Obras</h3>',
                 'type' => GridView::TYPE_DEFAULT,
                 'before' => false,
                 'footer' => false,
