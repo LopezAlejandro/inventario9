@@ -47,16 +47,17 @@ $this->registerJs($search);
         'title:ntext',
         'subtitle:ntext',
         'author:ntext',
-        [
+        /* [
             'class' => 'yii\grid\ActionColumn',
             'template' => '{update} {view}',
-        ],
+        ], */
     ]; 
     ?>
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
         'filterModel' => $searchModel,
         'columns' => $gridColumn,
+        'export' => false,
         'pjax' => true,
         'pjaxSettings' => ['options' => ['id' => 'kv-pjax-container-biblio']],
         'panel' => [
@@ -64,7 +65,7 @@ $this->registerJs($search);
             'heading' => '<span class="fas fa-book"></span>  ' . Html::encode($this->title),
         ],
         // your toolbar can include the additional full export menu
-        'toolbar' => [
+        /* 'toolbar' => [
             '{export}',
             ExportMenu::widget([
                 'dataProvider' => $dataProvider,
@@ -79,7 +80,7 @@ $this->registerJs($search);
                     ],
                 ],
             ]) ,
-        ],
+        ], */
     ]); ?>
 
 </div>

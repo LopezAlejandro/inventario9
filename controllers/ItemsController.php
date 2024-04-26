@@ -83,7 +83,7 @@ class ItemsController extends Controller
         $model = $this->findModel($id);
 
         if ($model->loadAll(Yii::$app->request->post()) && $model->saveAll()) {
-            return $this->redirect(['view', 'id' => $model->itemnumber]);
+            return $this->redirect(['biblio/index']);
         } else {
             return $this->render('update', [
                 'model' => $model,

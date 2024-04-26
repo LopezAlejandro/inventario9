@@ -52,6 +52,14 @@ $config = [
             ],
         ],
         */
+	'urlManager' => [
+	    'enablePrettyUrl' => true,
+	    'showScriptName' => false,
+	    'rules' => [
+    		'' => 'biblio/index',
+	        '<action>'=>'site/<action>',
+	    ],
+	],
     ],
     'params' => $params,
     'modules' => [

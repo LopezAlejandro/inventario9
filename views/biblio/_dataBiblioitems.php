@@ -50,7 +50,7 @@ $gridColumns = [
     [
         'class' => 'yii\grid\ActionColumn',
         'controller' => 'biblioitems',
-        'template' => '{update} {view}'
+        'template' => '{update}'
     ],
 ];
 
