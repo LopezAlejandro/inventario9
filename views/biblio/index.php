@@ -47,6 +47,20 @@ $this->registerJs($search);
         'title:ntext',
         'subtitle:ntext',
         'author:ntext',
+        /* [
+            'attribute' => 'new_status',
+            'label' => 'Nro Obra',
+            'value' => function ($model) {
+                return $model->items;
+            },
+            'filterType' => GridView::FILTER_SELECT2,
+            'filter' => \yii\helpers\ArrayHelper::map(\app\models\Items::find()->asArray()->one(), 'biblionumber', 'biblionumber'),
+            'filterWidgetOptions' => [
+                'pluginOptions' => ['allowClear' => true],
+            ],
+            'filterInputOptions' => ['placeholder' => 'Biblio', 'id' => 'grid-biblioitems-search-biblionumber']  
+        ], */
+        //$model->items->new_status,
     ];
     ?>
     <?= GridView::widget([

@@ -3,6 +3,7 @@
 namespace app\models\base;
 
 use Yii;
+use yii\behaviors\TimestampBehavior;
 
 /**
  * This is the base model class for table "items".
@@ -180,6 +181,22 @@ class Items extends \yii\db\ActiveRecord
         return $this->hasOne(\app\models\Biblio::className(), ['biblionumber' => 'biblionumber']);
     }
     
+    /**
+     * @inheritdoc
+     * @return array mixed
+     */
+    public function behaviors()
+    {
+        return [
+            'timestamp' => [
+                'class' => TimestampBehavior::className(),
+                'createdAtAttribute' => false,
+                'updatedAtAttribute' => 'deleted_on',
+                'value' => new \yii\db\Expression('NOW()'),
+            ],
+        ];
+    }
+
 
     /**
      * @inheritdoc

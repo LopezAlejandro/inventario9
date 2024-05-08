@@ -10,7 +10,7 @@ $config = [
     'bootstrap' => ['log'],
     'aliases' => [
         '@bower' => '@vendor/bower-asset',
-        '@npm'   => '@vendor/npm-asset',
+        '@npm' => '@vendor/npm-asset',
     ],
     'defaultRoute' => 'biblio/index',
     'components' => [
@@ -52,32 +52,35 @@ $config = [
             ],
         ],
         */
-	'urlManager' => [
-	    'enablePrettyUrl' => true,
-	    'showScriptName' => false,
-	    'rules' => [
-    		'' => 'biblio/index',
-	        '<action>'=>'site/<action>',
-	    ],
-	],
+
+        'urlManager' => [
+            'enablePrettyUrl' => true,
+            'showScriptName' => false,
+            'rules' => [
+                '' => 'biblio/index',
+                '<action>' => 'site/<action>',
+            ],
+        ],
     ],
     'params' => $params,
+
     'modules' => [
-    //your another module
-      'gridview' => [
-          'class' => '\kartik\grid\Module',
-          // see settings on http://demos.krajee.com/grid#module
-      ],
-      'datecontrol' => [
-          'class' => '\kartik\datecontrol\Module',
-          // see settings on http://demos.krajee.com/datecontrol#module
-      ],
-      // If you use tree table
-      'treemanager' =>  [
-          'class' => '\kartik\tree\Module',
-          // see settings on http://demos.krajee.com/tree-manager#module
-      ]
-    // your another module
+        //your another module
+        'gridview' => [
+            'class' => '\kartik\grid\Module',
+            // see settings on http://demos.krajee.com/grid#module
+        ],
+        'datecontrol' => [
+            'class' => '\kartik\datecontrol\Module',
+            // see settings on http://demos.krajee.com/datecontrol#module
+        ],
+        // If you use tree table
+        'treemanager' => [
+            'class' => '\kartik\tree\Module',
+            // see settings on http://demos.krajee.com/tree-manager#module
+        ],
+        // your another module
+
     ],
 ];
 
