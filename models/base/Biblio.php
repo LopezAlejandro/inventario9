@@ -34,13 +34,13 @@ class Biblio extends \yii\db\ActiveRecord
 
 
     /**
-    * This function helps \mootensai\relation\RelationTrait runs faster
-    * @return array relation names of this model
-    */
+     * This function helps \mootensai\relation\RelationTrait runs faster
+     * @return array relation names of this model
+     */
     public function relationNames()
     {
         return [
-//            'biblioMetadatas',
+            //            'biblioMetadatas',
             'biblioitems',
             'items'
         ];
@@ -52,7 +52,8 @@ class Biblio extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['author', 'title', 'subtitle'], 'string']
+            [['author', 'title', 'subtitle'], 'string'],
+            //[['items.biblionumber'],'safe'],
             //[['author', 'title', 'medium', 'subtitle', 'part_number', 'part_name', 'unititle', 'notes', 'seriestitle', 'abstract'], 'string'],
             //[['copyrightdate'], 'integer'],
             //[['timestamp', 'datecreated'], 'safe'],
@@ -77,10 +78,10 @@ class Biblio extends \yii\db\ActiveRecord
     {
         return [
             'biblionumber' => 'Biblionumber',
-//            'frameworkcode' => 'Frameworkcode',
+            //            'frameworkcode' => 'Frameworkcode',
             'author' => 'Autor',
             'title' => 'Titulo',
-//            'medium' => 'Medium',
+            //            'medium' => 'Medium',
             'subtitle' => 'Subtitulo',
             // 'part_number' => 'Part Number',
             // 'part_name' => 'Part Name',
@@ -92,17 +93,18 @@ class Biblio extends \yii\db\ActiveRecord
             // 'timestamp' => 'Timestamp',
             // 'datecreated' => 'Datecreated',
             // 'abstract' => 'Abstract',
+            //'nroobra' => 'Nro de Obra',
         ];
     }
-    
+
     /**
      * @return \yii\db\ActiveQuery
      */
-//    public function getBiblioMetadatas()
+    //    public function getBiblioMetadatas()
 //    {
 //        return $this->hasMany(\app\models\BiblioMetadata::className(), ['biblionumber' => 'biblionumber']);
 //    }
-        
+
     /**
      * @return \yii\db\ActiveQuery
      */
@@ -110,7 +112,7 @@ class Biblio extends \yii\db\ActiveRecord
     {
         return $this->hasMany(\app\models\Biblioitems::className(), ['biblionumber' => 'biblionumber']);
     }
-        
+
     /**
      * @return \yii\db\ActiveQuery
      */
@@ -118,7 +120,6 @@ class Biblio extends \yii\db\ActiveRecord
     {
         return $this->hasMany(\app\models\Items::className(), ['biblionumber' => 'biblionumber']);
     }
-    
 
     /**
      * @inheritdoc

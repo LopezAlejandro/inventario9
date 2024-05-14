@@ -15,19 +15,21 @@ class Biblio extends BaseBiblio
      */
     public function rules()
     {
-        return array_replace_recursive(parent::rules(),
-	    [
-            [['author', 'title', 'subtitle'], 'string'],
-            [['biblionumber'],'safe'],
-            //[['author', 'title', 'medium', 'subtitle', 'part_number', 'part_name', 'unititle', 'notes', 'seriestitle', 'abstract'], 'string'],
-            // [['copyrightdate'], 'integer'],
-            // [['timestamp', 'datecreated'], 'safe'],
-            // [['datecreated'], 'required'],
-            // [['frameworkcode'], 'string', 'max' => 4],
-            // [['serial'], 'string', 'max' => 1]
-        ]);
+        return array_replace_recursive(
+            parent::rules(),
+            [
+                [['author', 'title', 'subtitle'], 'string'],
+                [['biblionumber'], 'safe'],
+                //[['author', 'title', 'medium', 'subtitle', 'part_number', 'part_name', 'unititle', 'notes', 'seriestitle', 'abstract'], 'string'],
+                // [['copyrightdate'], 'integer'],
+                // [['timestamp', 'datecreated'], 'safe'],
+                // [['datecreated'], 'required'],
+                // [['frameworkcode'], 'string', 'max' => 4],
+                // [['serial'], 'string', 'max' => 1]
+            ]
+        );
     }
-	
+
     /**
      * @inheritdoc
      */
@@ -35,10 +37,10 @@ class Biblio extends BaseBiblio
     {
         return [
             'biblionumber' => 'Biblionumber',
-//            'frameworkcode' => 'Frameworkcode',
+            //            'frameworkcode' => 'Frameworkcode',
             'author' => 'Autor',
             'title' => 'Titulo',
-//            'medium' => 'Medium',
+            //            'medium' => 'Medium',
             'subtitle' => 'Subtitulo',
             // 'part_number' => 'Part Number',
             // 'part_name' => 'Part Name',

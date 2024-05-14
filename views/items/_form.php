@@ -43,7 +43,7 @@ use kartik\form\ActiveForm;
 
     <?= $form->field($model, 'itemcallnumber')->label('Ubicación')->textInput(['maxlength' => true, 'placeholder' => 'Itemcallnumber']) ?>
 
-    <?= $form->field($model, 'itemnotes_nonpublic')->label('Notas')->textarea(['rows' => 6]) ?>
+    <?= $form->field($model, 'itemnotes_nonpublic')->label('Notas')->textarea(['rows' => 2]) ?>
 
     <?= $form->field($model, 'new_status')->label('Nro de Obra')->textInput(['maxlength' => true, 'placeholder' => 'New Status']) ?>
 

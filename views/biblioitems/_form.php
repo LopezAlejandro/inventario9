@@ -35,9 +35,9 @@ use \kartik\form\ActiveForm;
     <?= $form->field($model, 'biblioitemnumber')->hiddenInput()->label(false) ?>
     <?= $form->field($model, 'biblionumber')->hiddenInput()->label(false) ?>
 
-    <?= $form->field($model, 'volume')->textInput() ?>
+    <?= $form->field($model, 'volume')->textInput()->label('Volumen') ?>
 
-    <?= $form->field($model, 'number')->textInput() ?>
+    <?= $form->field($model, 'number')->textInput()->label('Ejemplar') ?>
 
     <?php
     

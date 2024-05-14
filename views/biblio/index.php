@@ -5,6 +5,7 @@
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
 use yii\helpers\Html;
+use yii\helpers\ArrayHelper;
 use kartik\export\ExportMenu;
 use kartik\grid\GridView;
 
@@ -47,20 +48,15 @@ $this->registerJs($search);
         'title:ntext',
         'subtitle:ntext',
         'author:ntext',
-        /* [
-            'attribute' => 'new_status',
+        [
+            'attribute' => 'items',
             'label' => 'Nro Obra',
             'value' => function ($model) {
-                return $model->items;
+                $items = \app\models\base\Items::find()->where(['items.biblionumber' => $model->biblionumber])->one();
+                return $items->new_status;
             },
-            'filterType' => GridView::FILTER_SELECT2,
-            'filter' => \yii\helpers\ArrayHelper::map(\app\models\Items::find()->asArray()->one(), 'biblionumber', 'biblionumber'),
-            'filterWidgetOptions' => [
-                'pluginOptions' => ['allowClear' => true],
-            ],
-            'filterInputOptions' => ['placeholder' => 'Biblio', 'id' => 'grid-biblioitems-search-biblionumber']  
-        ], */
-        //$model->items->new_status,
+        ],        
+        
     ];
     ?>
     <?= GridView::widget([

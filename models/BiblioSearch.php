@@ -10,8 +10,9 @@ use app\models\Biblio;
 /**
  * app\models\BiblioSearch represents the model behind the search form about `app\models\Biblio`.
  */
- class BiblioSearch extends Biblio
+class BiblioSearch extends Biblio
 {
+    public $items;
     /**
      * @inheritdoc
      */
@@ -19,6 +20,7 @@ use app\models\Biblio;
     {
         return [
             [['biblionumber', 'copyrightdate'], 'integer'],
+            [['items'], 'safe'],
             [['frameworkcode', 'author', 'title', 'medium', 'subtitle', 'part_number', 'part_name', 'unititle', 'notes', 'serial', 'seriestitle', 'timestamp', 'datecreated', 'abstract'], 'safe'],
         ];
     }
@@ -43,17 +45,25 @@ use app\models\Biblio;
     {
         $query = Biblio::find();
 
+        $query->joinWith(['items']);
+
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
         ]);
 
-        $this->load($params);
+        $dataProvider->sort->attributes['items'] = [
+            // The tables are the ones our relation are configured to
+            // in my case they are prefixed with "tbl_"
+            'asc' => ['items.new_status' => SORT_ASC],
+            'desc' => ['items.new_status' => SORT_DESC],
+        ];
 
-        if (!$this->validate()) {
-            // uncomment the following line if you do not want to return any records when validation fails
-            // $query->where('0=1');
+        if (!($this->load($params) && $this->validate())) {
             return $dataProvider;
         }
+
+
+        //$this->load($params);
 
         $query->andFilterWhere([
             'biblionumber' => $this->biblionumber,
@@ -73,7 +83,7 @@ use app\models\Biblio;
             ->andFilterWhere(['like', 'notes', $this->notes])
             ->andFilterWhere(['like', 'serial', $this->serial])
             ->andFilterWhere(['like', 'seriestitle', $this->seriestitle])
-            ->andFilterWhere(['like', 'abstract', $this->abstract]);
+            ->andFilterWhere(['like', 'items.new_status', $this->items]);
 
         return $dataProvider;
     }
