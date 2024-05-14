@@ -64,9 +64,9 @@ class Items extends \yii\db\ActiveRecord
 
 
     /**
-    * This function helps \mootensai\relation\RelationTrait runs faster
-    * @return array relation names of this model
-    */
+     * This function helps \mootensai\relation\RelationTrait runs faster
+     * @return array relation names of this model
+     */
     public function relationNames()
     {
         return [
@@ -120,51 +120,14 @@ class Items extends \yii\db\ActiveRecord
             'biblionumber' => 'Biblionumber',
             'biblioitemnumber' => 'Biblioitemnumber',
             'barcode' => 'Barcode',
-            // 'dateaccessioned' => 'Dateaccessioned',
-            // 'booksellerid' => 'Booksellerid',
-            // 'homebranch' => 'Homebranch',
-            // 'price' => 'Price',
-            // 'replacementprice' => 'Replacementprice',
-            // 'replacementpricedate' => 'Replacementpricedate',
-            // 'datelastborrowed' => 'Datelastborrowed',
-            // 'datelastseen' => 'Datelastseen',
-            // 'stack' => 'Stack',
-            // 'notforloan' => 'Notforloan',
             'damaged' => 'Damaged',
-            // 'damaged_on' => 'Damaged On',
-            // 'itemlost' => 'Itemlost',
-            // 'itemlost_on' => 'Itemlost On',
-            // 'withdrawn' => 'Withdrawn',
-            // 'withdrawn_on' => 'Withdrawn On',
             'itemcallnumber' => 'Itemcallnumber',
-            // 'coded_location_qualifier' => 'Coded Location Qualifier',
-            // 'issues' => 'Issues',
-            // 'renewals' => 'Renewals',
-            // 'reserves' => 'Reserves',
-            // 'restricted' => 'Restricted',
-            // 'itemnotes' => 'Itemnotes',
             'itemnotes_nonpublic' => 'Itemnotes Nonpublic',
-            // 'holdingbranch' => 'Holdingbranch',
-            // 'timestamp' => 'Timestamp',
-            // 'deleted_on' => 'Deleted On',
-            // 'location' => 'Location',
-            // 'permanent_location' => 'Permanent Location',
-            // 'onloan' => 'Onloan',
-            // 'cn_source' => 'Cn Source',
-            // 'cn_sort' => 'Cn Sort',
-            // 'ccode' => 'Ccode',
-            // 'materials' => 'Materials',
-            // 'uri' => 'Uri',
-            // 'itype' => 'Itype',
-            // 'more_subfields_xml' => 'More Subfields Xml',
-            // 'enumchron' => 'Enumchron',
-            // 'copynumber' => 'Copynumber',
-            // 'stocknumber' => 'Stocknumber',
             'new_status' => 'New Status',
-            //'exclude_from_local_holds_priority' => 'Exclude From Local Holds Priority',
+
         ];
     }
-    
+
     /**
      * @return \yii\db\ActiveQuery
      */
@@ -172,7 +135,7 @@ class Items extends \yii\db\ActiveRecord
     {
         return $this->hasOne(\app\models\Biblioitems::className(), ['biblioitemnumber' => 'biblioitemnumber']);
     }
-        
+
     /**
      * @return \yii\db\ActiveQuery
      */
@@ -180,7 +143,7 @@ class Items extends \yii\db\ActiveRecord
     {
         return $this->hasOne(\app\models\Biblio::className(), ['biblionumber' => 'biblionumber']);
     }
-    
+
     /**
      * @inheritdoc
      * @return array mixed

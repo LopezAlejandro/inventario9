@@ -30,16 +30,16 @@ use kartik\form\ActiveForm;
 
     <?= $form->field($model, 'biblioitemnumber')->hiddenInput()->label(false) ?>
 
-    <?= $form->field($model, 'barcode')->label('Codigo de Barras')->textInput(['maxlength' => true, 'placeholder' => 'Barcode'])?>
+    <?= $form->field($model, 'barcode')->label('Codigo de Barras')->textInput(['maxlength' => true, 'placeholder' => 'Barcode']) ?>
 
     <?= $form->field($model, 'damaged')->dropDownList([
-            '0' => 'Excelente',
-            '1' => 'Bueno',
-            '2' => 'Aceptable',
-            '3' => 'Regular',
-            '4' => 'Malo',
-            '5' => 'Pésimo',
-    ])->label('Estado')?>
+        '0' => 'Excelente',
+        '1' => 'Bueno',
+        '2' => 'Aceptable',
+        '3' => 'Regular',
+        '4' => 'Malo',
+        '5' => 'Pésimo',
+    ])->label('Estado') ?>
 
     <?= $form->field($model, 'itemcallnumber')->label('Ubicación')->textInput(['maxlength' => true, 'placeholder' => 'Itemcallnumber']) ?>
 
@@ -49,7 +49,7 @@ use kartik\form\ActiveForm;
 
     <div class="form-group">
         <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
-        <?= Html::a(Yii::t('app', 'Cancel'), Yii::$app->request->referrer , ['class'=> 'btn btn-danger']) ?>
+        <?= Html::a(Yii::t('app', 'Cancel'), Yii::$app->request->referrer, ['class' => 'btn btn-danger']) ?>
     </div>
 
     <?php ActiveForm::end(); ?>

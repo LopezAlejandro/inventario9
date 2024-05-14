@@ -10,7 +10,7 @@ use app\models\Items;
 /**
  * app\models\ItemsSearch represents the model behind the search form about `app\models\Items`.
  */
- class ItemsSearch extends Items
+class ItemsSearch extends Items
 {
     /**
      * @inheritdoc
@@ -105,7 +105,6 @@ use app\models\Items;
             ->andFilterWhere(['like', 'stocknumber', $this->stocknumber])
             ->andFilterWhere(['like', 'new_status', $this->new_status])
             ->andFilterWhere(['like', 'exclude_from_local_holds_priority', $this->exclude_from_local_holds_priority]);
-
         return $dataProvider;
     }
 }

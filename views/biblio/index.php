@@ -55,8 +55,8 @@ $this->registerJs($search);
                 $items = \app\models\base\Items::find()->where(['items.biblionumber' => $model->biblionumber])->one();
                 return $items->new_status;
             },
-        ],        
-        
+        ],
+
     ];
     ?>
     <?= GridView::widget([
