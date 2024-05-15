@@ -33,12 +33,11 @@ use kartik\form\ActiveForm;
     <?= $form->field($model, 'barcode')->label('Codigo de Barras')->textInput(['maxlength' => true, 'placeholder' => 'Barcode']) ?>
 
     <?= $form->field($model, 'damaged')->dropDownList([
-        '0' => 'Excelente',
-        '1' => 'Bueno',
-        '2' => 'Aceptable',
-        '3' => 'Regular',
-        '4' => 'Malo',
-        '5' => 'Pésimo',
+        '0' => 'Sin daños',
+        '1' => 'Daño leve',
+        '2' => 'Dañado',
+        '3' => 'Daño severo',
+        '4' => 'De baja',
     ])->label('Estado') ?>
 
     <?= $form->field($model, 'itemcallnumber')->label('Ubicación')->textInput(['maxlength' => true, 'placeholder' => 'Itemcallnumber']) ?>
