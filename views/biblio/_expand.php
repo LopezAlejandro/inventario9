@@ -25,6 +25,13 @@ $items = [
             'row' => $model->items,
         ]),
     ],
+    [
+        'label' => '<i class="fas fa-book"></i> ' . Html::encode('Metadatos'),
+        'content' => $this->render('_dataBiblioMetadata', [
+            'model' => $model,
+            'row' => $model->biblioMetadatas,
+        ]),
+    ],
 ];
 echo TabsX::widget([
     'items' => $items,

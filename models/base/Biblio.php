@@ -40,7 +40,7 @@ class Biblio extends \yii\db\ActiveRecord
     public function relationNames()
     {
         return [
-            //            'biblioMetadatas',
+            'biblioMetadatas',
             'biblioitems',
             'items'
         ];
@@ -100,10 +100,10 @@ class Biblio extends \yii\db\ActiveRecord
     /**
      * @return \yii\db\ActiveQuery
      */
-    //    public function getBiblioMetadatas()
-//    {
-//        return $this->hasMany(\app\models\BiblioMetadata::className(), ['biblionumber' => 'biblionumber']);
-//    }
+    public function getBiblioMetadatas()
+    {
+        return $this->hasMany(\app\models\BiblioMetadata::className(), ['biblionumber' => 'biblionumber']);
+    }
 
     /**
      * @return \yii\db\ActiveQuery

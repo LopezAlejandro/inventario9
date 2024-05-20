@@ -8,14 +8,12 @@ $dataProvider = new ArrayDataProvider([
 ]);
 $gridColumns = [
     ['class' => 'yii\grid\SerialColumn'],
-    'id',
-    'format',
-    'schema',
+    
     'metadata:ntext',
-    [
+    /* [
         'class' => 'yii\grid\ActionColumn',
         'controller' => 'biblio-metadata'
-    ],
+    ], */
 ];
 
 echo GridView::widget([
