@@ -1,6 +1,8 @@
 <?php
+use yii\helpers\Html;
 use kartik\grid\GridView;
 use yii\data\ArrayDataProvider;
+use Scriptotek\Marc\Record;
 
 $dataProvider = new ArrayDataProvider([
     'allModels' => $model->biblioMetadatas,
@@ -8,8 +10,22 @@ $dataProvider = new ArrayDataProvider([
 ]);
 $gridColumns = [
     ['class' => 'yii\grid\SerialColumn'],
+    [
+        'attribute' => 'metadata',
+        'label' => 'campo 990',
+        'format' => 'raw',
+        'value' => function ($model) {
+            $c990 ='';
+            $campo = Record::fromString($model->metadata);
+            foreach ($campo->query('990$a') as $subfield){
+                $c990 = $c990.$subfield->getData()."\n";
+            }
+            return nl2br($c990);
+        }, 
+    //'value' => 'metadata'
+],
     
-    'metadata:ntext',
+    //'metadata:ntext',
     /* [
         'class' => 'yii\grid\ActionColumn',
         'controller' => 'biblio-metadata'
