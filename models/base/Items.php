@@ -28,14 +28,14 @@ use yii\behaviors\TimestampBehavior;
 //  * @property string $itemlost_on
 //  * @property integer $withdrawn
 //  * @property string $withdrawn_on
- * @property string $itemcallnumber
+* @property string $itemcallnumber
 //  * @property string $coded_location_qualifier
 //  * @property integer $issues
 //  * @property integer $renewals
 //  * @property integer $reserves
 //  * @property integer $restricted
 //  * @property string $itemnotes
- * @property string $itemnotes_nonpublic
+* @property string $itemnotes_nonpublic
 //  * @property string $holdingbranch
 //  * @property string $timestamp
 //  * @property string $deleted_on
@@ -49,10 +49,10 @@ use yii\behaviors\TimestampBehavior;
 //  * @property string $uri
 //  * @property string $itype
 //  * @property string $more_subfields_xml
-//  * @property string $enumchron
-//  * @property string $copynumber
-//  * @property string $stocknumber
- * @property string $new_status
+* @property string $enumchron
+* @property string $copynumber
+* @property string $stocknumber
+* @property string $new_status
 // * @property integer $exclude_from_local_holds_priority
  *
  * @property \app\models\Biblioitems $biblioitemnumber0
@@ -85,9 +85,10 @@ class Items extends \yii\db\ActiveRecord
             [['barcode'], 'string', 'max' => 20],
             [['damaged'], 'integer'],
             [['itemcallnumber'], 'string', 'max' => 255],
-            [['new_status'], 'string', 'max' => 32],
-            [['itemnotes_nonpublic'], 'string'],
-            [['barcode'], 'unique']
+            [['new_status', 'stocknumber', 'copynumber'], 'string', 'max' => 32],
+            [['itemnotes_nonpublic', 'enumchron'], 'string'],
+            [['barcode'], 'unique'],
+
             // [['biblionumber', 'biblioitemnumber', 'issues', 'renewals', 'reserves'], 'integer'],
             // [['dateaccessioned', 'replacementpricedate', 'datelastborrowed', 'datelastseen', 'damaged_on', 'itemlost_on', 'withdrawn_on', 'timestamp', 'deleted_on', 'onloan'], 'safe'],
             // [['booksellerid', 'itemnotes', 'itemnotes_nonpublic', 'materials', 'uri', 'more_subfields_xml', 'enumchron'], 'string'],
@@ -119,12 +120,14 @@ class Items extends \yii\db\ActiveRecord
             'itemnumber' => 'Itemnumber',
             'biblionumber' => 'Biblionumber',
             'biblioitemnumber' => 'Biblioitemnumber',
-            'barcode' => 'Barcode',
-            'damaged' => 'Damaged',
-            'itemcallnumber' => 'Itemcallnumber',
-            'itemnotes_nonpublic' => 'Itemnotes Nonpublic',
-            'new_status' => 'New Status',
-
+            'barcode' => 'Codigo de Barras',
+            'damaged' => 'Estado',
+            'itemcallnumber' => 'Ubicación',
+            'itemnotes_nonpublic' => 'Notas',
+            'new_status' => 'Nro de Obra',
+            'stocknumber' => 'Nro de Inventario',
+            'copynumber' => 'Nro de Copia',
+            'enumchron' => 'Ejemplar',
         ];
     }
 

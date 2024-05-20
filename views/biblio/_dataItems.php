@@ -41,6 +41,18 @@ $gridColumns = [
         'attribute' => 'itemnotes_nonpublic:ntext',
         'label' => 'Notas privadas'
     ],
+    [
+        'attribute' => 'stocknumber',
+        'label' => 'Inventario'
+    ],
+    [
+        'attribute' => 'copynumber',
+        'label' => 'Nro de Copia'
+    ],
+    [
+        'attribute' => 'enumchron',
+        'label' => 'Ejemplar'
+    ],
 
     [
         'attribute' => 'new_status',

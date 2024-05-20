@@ -22,9 +22,9 @@ class Items extends BaseItems
                 [['barcode'], 'string', 'max' => 20],
                 [['damaged'], 'integer'],
                 [['itemcallnumber'], 'string', 'max' => 255],
-                [['new_status'], 'string', 'max' => 32],
-                [['itemnotes_nonpublic'], 'string'],
-                [['barcode'], 'unique']
+                [['new_status', 'stocknumber', 'copynumber'], 'string', 'max' => 32],
+                [['itemnotes_nonpublic', 'enumchron'], 'string'],
+                [['barcode'], 'unique'],
             ]
         );
     }
@@ -38,11 +38,14 @@ class Items extends BaseItems
             'itemnumber' => 'Itemnumber',
             'biblionumber' => 'Biblionumber',
             'biblioitemnumber' => 'Biblioitemnumber',
-            'barcode' => 'Barcode',
-            'damaged' => 'Damaged',
-            'itemcallnumber' => 'Itemcallnumber',
-            'itemnotes_nonpublic' => 'Itemnotes Nonpublic',
-            'new_status' => 'New Status',
+            'barcode' => 'Codigo de Barras',
+            'damaged' => 'Estado',
+            'itemcallnumber' => 'Ubicación',
+            'itemnotes_nonpublic' => 'Notas',
+            'new_status' => 'Nro de Obra',
+            'stocknumber' => 'Nro de Inventario',
+            'copynumber' => 'Nro de Copia',
+            'enumchron' => 'Ejemplar',
         ];
     }
 }
