@@ -15,14 +15,21 @@ $gridColumns = [
         'label' => 'campo 990',
         'format' => 'raw',
         'value' => function ($model) {
-            $c990 ='';
+            $c990 = '';
             $campo = Record::fromString($model->metadata);
-            foreach ($campo->query('990$a') as $subfield){
-                $c990 = $c990.$subfield->getData()."\n";
+            foreach ($campo->query('990$a') as $subfield) {
+                $c990 = $c990 . $subfield->getData() . "\n";
             }
             return nl2br($c990);
-        }, 
-    //'value' => 'metadata'
+        },
+        //'value' => 'metadata'
+    ],
+    [
+        'attribute' => 'metadata',
+        'label' => 'Nro de Obra',
+        'value' => function ($model) {
+            return Record::fromString($model->metadata)->query('001')->text();
+    }
 ],
     
     //'metadata:ntext',

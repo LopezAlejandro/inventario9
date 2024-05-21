@@ -54,10 +54,10 @@ $gridColumns = [
         'label' => 'Ejemplar'
     ],
 
-    [
-        'attribute' => 'new_status',
-        'label' => 'Nro de Obra'
-    ],
+//    [
+//        'attribute' => 'new_status',
+//        'label' => 'Nro de Obra'
+//    ],
 
     [
         'class' => 'yii\grid\ActionColumn',

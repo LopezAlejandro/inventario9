@@ -50,7 +50,7 @@ use kartik\form\ActiveForm;
 
     <?= $form->field($model, 'enumchron')->label('Ejemplar')->textInput(['maxlength' => true, 'placeholder' => 'Ejemplar']) ?>
 
-    <?= $form->field($model, 'new_status')->label('Nro de Obra')->textInput(['maxlength' => true, 'placeholder' => 'Nro de Obra']) ?>
+    <?= $form->field($model, 'new_status')->label('Nro de Obra')->staticInput() ?>
 
     <div class="form-group">
         <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
