@@ -58,7 +58,14 @@ $config = [
             'showScriptName' => false,
             'rules' => [
                 '' => 'biblio/index',
-                '<action>' => 'site/<action>',
+                'items/' => 'biblio/index',
+                'items/<action:view|create|delete|index>' => 'biblio/index',
+                [
+                    'pattern' => 'biblioitems/<tag>',
+                    'route' => 'biblio/index',
+                    'defaults' => ['tag' => ''],
+                ],
+
             ],
         ],
     ],

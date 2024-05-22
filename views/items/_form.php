@@ -33,11 +33,12 @@ use kartik\form\ActiveForm;
     <?= $form->field($model, 'barcode')->label('Codigo de Barras')->textInput(['maxlength' => true, 'placeholder' => 'Código de Barras']) ?>
 
     <?= $form->field($model, 'damaged')->dropDownList([
-        '0' => 'Sin daños',
-        '1' => 'Daño leve',
-        '2' => 'Dañado',
-        '3' => 'Daño severo',
-        '4' => 'De baja',
+        '0' => 'Excelemte',
+        '1' => 'Bueno',
+        '2' => 'Aceptable',
+        '3' => 'Regular',
+        '4' => 'Malo',
+        '5' => 'Pésimo',
     ])->label('Estado') ?>
 
     <?= $form->field($model, 'itemcallnumber')->label('Ubicación')->textInput(['maxlength' => true, 'placeholder' => 'Ubicación']) ?>
@@ -46,9 +47,9 @@ use kartik\form\ActiveForm;
 
     <?= $form->field($model,'stocknumber')->label('Nro de Inventario')->textInput(['maxlength' => true, 'placeholder' => 'Nro de Inventario']) ?>
 
-    <?= $form->field($model, 'copynumber')->label('Nro de Copia')->textInput(['maxlength' => true, 'placeholder' => 'Nro de Copia']) ?>
+    <?= $form->field($model, 'copynumber')->label('Ejemplar Nro.')->textInput(['maxlength' => true, 'placeholder' => 'Ejemplar Nro.']) ?>
 
-    <?= $form->field($model, 'enumchron')->label('Ejemplar')->textInput(['maxlength' => true, 'placeholder' => 'Ejemplar']) ?>
+    <?= $form->field($model, 'enumchron')->label('Volumen/Num')->textInput(['maxlength' => true, 'placeholder' => 'Volumen/Num']) ?>
 
     <?= $form->field($model, 'new_status')->label('Nro de Obra')->staticInput() ?>
 

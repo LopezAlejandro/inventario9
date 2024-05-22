@@ -24,11 +24,12 @@ $gridColumns = [
         'label' => 'Estado',
         'format' => 'html',
         'enum' => [
-            '0' => '<span class="text-success">Sin daños</span>',
-            '1' => '<span class="text-success">Daño leve</span>',
-            '2' => '<span class="text-warning">Dañado</span>',
-            '3' => '<span class="text-danger">Daño severo</span>',
-            '4' => '<span class="text-danger">De baja</span>',
+            '0' => '<span class="text-success">Excelente</span>',
+            '1' => '<span class="text-success">Bueno</span>',
+            '2' => '<span class="text-warning">Aceptable</span>',
+            '3' => '<span class="text-warning">Regular</span>',
+            '4' => '<span class="text-danger">Malo</span>',
+            '5' => '<span class="text-danger">Pésimo</span>',
         ]
     ],
 
@@ -47,11 +48,11 @@ $gridColumns = [
     ],
     [
         'attribute' => 'copynumber',
-        'label' => 'Nro de Copia'
+        'label' => 'Ejemplar Nro.'
     ],
     [
         'attribute' => 'enumchron',
-        'label' => 'Ejemplar'
+        'label' => 'Volumen/Num'
     ],
 
 //    [

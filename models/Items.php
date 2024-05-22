@@ -44,8 +44,8 @@ class Items extends BaseItems
             'itemnotes_nonpublic' => 'Notas',
             'new_status' => 'Nro de Obra',
             'stocknumber' => 'Nro de Inventario',
-            'copynumber' => 'Nro de Copia',
-            'enumchron' => 'Ejemplar',
+            'copynumber' => 'Ejemplar Nro.',
+            'enumchron' => 'Volumen/Num',
         ];
     }
 }
