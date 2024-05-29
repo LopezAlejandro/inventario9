@@ -58,14 +58,11 @@ $config = [
             'showScriptName' => false,
             'rules' => [
                 '' => 'biblio/index',
+                '<controller:(biblio)>/<action:(view|create|update|delete)>' => 'biblio/index',
+                '<controller:(items)>/<action:(view|create|delete|index)>' => 'biblio/index',
+                '<controller:(bibliotedadata|biblioitems)>/<action:(view|create|delete|index|update)>' => 'biblio/index',
                 'items/' => 'biblio/index',
-                'items/<action:view|create|delete|index>' => 'biblio/index',
-                [
-                    'pattern' => 'biblioitems/<tag>',
-                    'route' => 'biblio/index',
-                    'defaults' => ['tag' => ''],
-                ],
-
+               
             ],
         ],
     ],
