@@ -47,7 +47,7 @@ use yii\behaviors\TimestampBehavior;
 //  * @property string $ccode
 //  * @property string $materials
 //  * @property string $uri
-//  * @property string $itype
+* @property string $itype
 //  * @property string $more_subfields_xml
 * @property string $enumchron
 * @property string $copynumber
@@ -88,6 +88,7 @@ class Items extends \yii\db\ActiveRecord
             [['new_status', 'stocknumber', 'copynumber'], 'string', 'max' => 32],
             [['itemnotes_nonpublic', 'enumchron'], 'string'],
             [['barcode'], 'unique'],
+            [['itype'],'string','max' => 10],
 
             // [['biblionumber', 'biblioitemnumber', 'issues', 'renewals', 'reserves'], 'integer'],
             // [['dateaccessioned', 'replacementpricedate', 'datelastborrowed', 'datelastseen', 'damaged_on', 'itemlost_on', 'withdrawn_on', 'timestamp', 'deleted_on', 'onloan'], 'safe'],
@@ -128,6 +129,7 @@ class Items extends \yii\db\ActiveRecord
             'stocknumber' => 'Nro de Inventario',
             'copynumber' => 'Ejemplar Nro.',
             'enumchron' => 'Volumen/Num',
+            'itype' => 'Tipo de material',
         ];
     }
 

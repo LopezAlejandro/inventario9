@@ -25,6 +25,7 @@ class Items extends BaseItems
                 [['new_status', 'stocknumber', 'copynumber'], 'string', 'max' => 32],
                 [['itemnotes_nonpublic', 'enumchron'], 'string'],
                 [['barcode'], 'unique'],
+                [['itype'], 'string', 'max' => 10],
             ]
         );
     }
@@ -46,6 +47,7 @@ class Items extends BaseItems
             'stocknumber' => 'Nro de Inventario',
             'copynumber' => 'Ejemplar Nro.',
             'enumchron' => 'Volumen/Num',
+            'itype' => 'Tipo de Material',
         ];
     }
 }

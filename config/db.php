@@ -2,9 +2,9 @@
 
 return [
     'class' => 'yii\db\Connection',
-    'dsn' => 'mysql:host=localhost;dbname=inventario',
-    'username' => 'root',
-    'password' => 'r31n4d0',
+    'dsn' => 'mysql:host=localhost;dbname=koha_bibliofadu',
+    'username' => '****',
+    'password' => '*******',
     'charset' => 'utf8',
 
     // Schema cache options (for production environment)

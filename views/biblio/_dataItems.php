@@ -55,10 +55,18 @@ $gridColumns = [
         'label' => 'Volumen/Num'
     ],
 
-//    [
-//        'attribute' => 'new_status',
-//        'label' => 'Nro de Obra'
-//    ],
+    [
+        'class' => 'kartik\grid\EnumColumn',
+        'attribute' => 'itype',
+        'label' => 'Tipo de Material',
+        'format' => 'html',
+        'enum' => [
+            'BK' => '<span class="text-primary">Libros</span>',
+            'BKD' => '<span class="text-primary">Libros de préstamo a domicilio</span>',
+            'BKR' => '<span class="text-primary">Libros reservados</span>',
+            'BKS' => '<span class="text-primary">Libros de préstamo en sala</span>',
+        ]
+    ],
 
     [
         'class' => 'yii\grid\ActionColumn',

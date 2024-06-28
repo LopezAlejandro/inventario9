@@ -53,6 +53,13 @@ use kartik\form\ActiveForm;
 
     <?= $form->field($model, 'new_status')->label('Nro de Obra')->staticInput() ?>
 
+    <?= $form->field($model, 'itype')->dropDownList([
+        'BK' => 'Libros',
+        'BKD' => 'Libros de préstamo a domicilio',
+        'BKR' => 'Libros reservados',
+        'BKS' => 'Libros de préstamo en sala',
+    ])->label('Tipo de Material') ?>
+
     <div class="form-group">
         <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
         <?= Html::a(Yii::t('app', 'Cancel'), Yii::$app->request->referrer, ['class' => 'btn btn-danger']) ?>
